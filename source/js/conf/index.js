@@ -4,17 +4,14 @@ define(function(require, exports, module) {
     var Slider = require('lib/ui/slider/3.0.4/slider');
     var Lazyload = require('lib/plugins/lazyload/1.9.3/lazyload');
     var IScroll = require('lib/plugins/iscroll/1.0.0/iscroll');
-    var Lazyload = require('lib/plugins/lazyload/1.9.3/lazyload');
-
 
 	var jScrollList = $('#jScrollList li');
     $('#jScrollCnt').width(jScrollList.length*jScrollList.width());
     
 	var myScroll = new IScroll('#jScroll', { 
-//		eventPassthrough: true, 
 		scrollX: true, 
 		scrollY: false, 
-//		preventDefault: false 
+        click: true,
 	});
 
     //slider
@@ -43,14 +40,7 @@ define(function(require, exports, module) {
         effect: 'fadeIn',
         snap: true
     });
-    
-    
-    $('.jSearch').click(function(){
-		window.location.href='demo.html';
-	})
-    
-
-    
+  
 });
 
 	

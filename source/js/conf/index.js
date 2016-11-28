@@ -4,6 +4,7 @@ define(function(require, exports, module) {
     var Slider = require('lib/ui/slider/3.0.4/slider');
     var Lazyload = require('lib/plugins/lazyload/1.9.3/lazyload');
     var IScroll = require('lib/plugins/iscroll/1.0.0/iscroll');
+    var Lazyload = require('lib/plugins/lazyload/1.9.3/lazyload');
 
 
 	var jScrollList = $('#jScrollList li');

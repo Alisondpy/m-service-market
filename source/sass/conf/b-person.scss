@@ -104,7 +104,7 @@
 			align-items:center;
 			justify-content:space-between;
 			padding:0 125px;
-			.left-zone{
+			.box-zone{
 				position:relative;
 				width:102px;
 				height:155px;
@@ -117,6 +117,17 @@
 					line-height:101px;
 					background-color:#2bd1aa;
 					border-radius:10px;
+				}
+				.other-zone{
+					width:102px;
+					height:101px;
+					line-height:101px;
+					background-color:#f00;
+					border-radius:10px;
+					.isema-shutdown{
+						font-size:55px;
+						color:#fff;
+					}
 				}
 				.square{
 						position:absolute;
@@ -138,28 +149,7 @@
 					margin-top:15px;
 				}
 			}
-			.right-zone{	
-				position:relative;
-				width:102px;
-				height:155px;
-				float:left;
-				text-align:center;
-				.zone{
-
-					width:102px;
-					height:101px;
-					line-height:101px;
-					background-color:#ff4545;
-					border-radius:10px;
-				}
-				.isema-shutdown{
-					font-size:55px;
-					color:#fff;
-				}
-				.txt-doing{
-					margin-top:15px;
-				}
-			}
+			
 		}
 	}
 	/*中间颜色块*/

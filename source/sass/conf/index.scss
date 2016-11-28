@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import "../common/common";
+@import "../module/ui-service-providers";
+@import "../module/ui-products";
 body,
 html {
     background-color: #eee;
@@ -34,6 +36,7 @@ ul {
             color: #000;
             outline: none;
             font-size: 22px;
+            line-height:50px;
             padding-left: 70px;
         }
         .mod-search {
@@ -148,7 +151,7 @@ ul {
     width: 100%;
     background-color: #eee;
     .mod-service {
-        padding: 17px 22px;
+        padding: 24px 22px 17px 22px;
         overflow: hidden;
         .line {
             overflow: hidden;
@@ -156,7 +159,7 @@ ul {
             em {
                 float: left;
                 font-style: normal;
-                font-size: 24px;/*px*/
+                font-size: 22px;/*px*/
             }
             .more {
                 font-size: 20px;/*px*/
@@ -171,71 +174,23 @@ ul {
                 color: #000000;
             }
         }
-        .vendor{
-            margin-left:-15px;
-            width:780px;
-            overflow:hidden;
-            .company {
-                background-color:#fff;
-                width:325px;
-                height:205px;
-                float:left;
-                margin-left:15px;
-                padding:20px 0 0 20px;
-      
-                .clearfix {
-                    overflow: hidden;
-                    img {
-                        width: 90px;
-                        height: 87px;
-                        border-radius: 50%;
-                        float: left;
-                    }
-                    .con {
-                        float: left;
-                        margin-left: 15px;
-                        .title {
-                            width: 150px;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            display: block;
-                            white-space: nowrap;
-                            font-weight: bold;
-                            color: #000;
-                            margin-bottom: 9px;
-                            font-size: 26px;
-                            margin-top: 10px;
-                        }
-                        .light {
-                            border: 1px solid #40d1ad;
-                            padding: 2px;
-                            color: #40d1ad;
-                            border-radius: 3px;
-                            font-size: 20px;
-                        }
-                    }
-                }
-                
-                .context {
-                    margin-top: 20px;
-                    .comtext-m {
-                        width: 303px;
-                        font-size: 18px;
-                        word-break: break-all;
-                    }
-                }
-            }
-    }
+        // .vendor{
+        //     margin-left:-15px;
+        //     width:780px;
+        //     overflow:hidden;
+            
+        //      }
         }
         
-    .mod-servicep {
+    .mod-service-product {
         padding: 17px 22px;
         .line {
             overflow: hidden;
+            margin-bottom:14px;
             em {
                 float: left;
                 font-style: normal;
-                font-size: 24px;
+                font-size: 22px;/*px*/
             }
             .more {
                 float: right;
@@ -248,51 +203,6 @@ ul {
                 background-color: #FFF;
                 border-radius: 15%;
                 color: #000000;
-            }
-        }
-        .list {
-            overflow: hidden;
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 25px 20px 35px;
-            .img {
-                float: left;
-                width: 224px;
-                height: 132px;
-                overflow: hidden;
-                text-align: center;
-                img {
-                    height: 132px;
-                }
-            }
-            .context {
-                overflow: hidden;
-                float: left;
-                margin-left: 20px;
-                h2 {
-                    float: left;
-                    font-size: 26px;
-                    margin-top: 5px;
-                }
-                .span {
-                    float: right;
-                    margin-top: 5px;
-                    margin-left: 70px;
-                    span {
-                        border: 1px solid #40d1ad;
-                        /*no*/
-                        color: #40d1ad;
-                        padding: 2px;
-                        border-radius: 3px;
-                        font-size: 20px;
-                    }
-                }
-                p {
-                    width: 400px;
-                    word-break: break-all;
-                    margin-top: 50px;
-                    font-size: 18px;
-                }
             }
         }
     }

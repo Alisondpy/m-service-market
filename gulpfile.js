@@ -83,9 +83,9 @@ gulp.task("sass", function() {
     }
     return gulp.src(CONFIG.sass.src)
         .pipe(sass(CONFIG.sassOptions).on('error', sass.logError))
-        .pipe(gulpif(gIsRelease, cleanCss()))
         // .pipe(sourcemaps.init())
         .pipe(postcss(postcssProcessors))
+        .pipe(gulpif(gIsRelease, cleanCss()))
         // .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(CONFIG.sass.dest))
         .pipe(buffer())

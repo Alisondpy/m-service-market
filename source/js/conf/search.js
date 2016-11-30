@@ -184,7 +184,7 @@ define(function(require, exports, module) {
         var str = '';
         str += '<a class="ui-product" href="' + $PAGE_DATA['productDetailsUrl'] + data.id + '">';
         str += '    <div class="img">';
-        str += '        <img class="error-img" src="' + data.logoUrl + '">';
+        str += '        <img class="error-img" src="' + data.imgUrl + '">';
         str += '    </div>';
         str += '    <div class="cnt">';
         str += '        <div class="title clearfix">';

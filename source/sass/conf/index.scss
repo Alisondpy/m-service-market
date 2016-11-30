@@ -2,6 +2,7 @@
 @import "../common/common";
 @import "../module/ui-service-providers";
 @import "../module/ui-products";
+@import "../module/fix-nav";
 body,
 html {
     background-color: #eee;
@@ -154,6 +155,9 @@ ul {
                 border-radius: 15%;
                 color: #000000;
             }
+            .more:active{
+                background-color: #40d1ad;
+            }
         }
         }
         
@@ -178,6 +182,9 @@ ul {
                 background-color: #FFF;
                 border-radius: 15%;
                 color: #000000;
+            }
+            .more:active{
+                background-color:#40d1ad;
             }
         }
     }

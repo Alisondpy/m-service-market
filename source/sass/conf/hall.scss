@@ -14,8 +14,31 @@ body,html{
 	    left: 23px;
 	    right: 0;
 	    overflow: auto;
+		    .pull-down,
+	    	.pull-up {
+	        display: none;
+	        font-size: 24px;/*px*/
+	        width: 100%;
+	        color: #333;
+	        height: 80px;
+	        line-height: 80px;
+	        text-align: center;
+	        vertical-align: middle;
+	        .isema{
+	            font-size: 24px;/*px*/
+	        }
+	        .isema-loading{
+	            display: inline-block;
+	            animation: spinner-spin 1s step-end infinite;
+	            margin-right: 3px;
+	        }
+	    }
 		ul{
+			
 			/*样式已经放在公共样式的区域，虽然感觉代码较少没有必要，但是利于后期维护*/
 		}
 	}
+	.ui-empty-list{
+				margin-top:500px;
+			}
 }

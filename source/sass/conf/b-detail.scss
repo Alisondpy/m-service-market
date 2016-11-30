@@ -32,9 +32,11 @@ h1,p{
     top: 236px;
     bottom: 119px;
    .mod-conup{
-       padding: 21px;
+       padding: 15px 21px 21px 21px;
        .con-1{
            overflow: hidden;//清除浮动
+           height:40px;
+           line-height:40px;
            .title{
                float: left;
                font-size: 26px;/*px*/
@@ -43,6 +45,7 @@ h1,p{
                float: right;
               span{
                border: 1px solid #40d1ad; /*no*/
+               font-size:18px;
                margin-left: 5px;
                padding: 3px;
                color: #40d1ad;

@@ -11,25 +11,26 @@ define(function(require, exports, module) {
     var jAppend = $(".jAppend");
     var currentpage = 1;
     var ispull = false;
-
+    var ispage = false;
     	var pullRefresh = new PullToRefresh('#jWrapper',{
     		pullDown:{
     			enable:false
     		}
     	});
 
-    	// var loadingBox = box.loading('奋力加载中,请稍后.....');
-
+    	
+		var loadingBox
     	pullRefresh.on('pullUp',function(callback){
-    		currentpage++;
+    		if(ispage == true){
+    			currentpage = currentpage;
+    		}else{
+    			currentpage++;
+    		}
 	        ispull = true;
 	        backstage(callback, currentpage);
     	});
 
-   
-
     	function backstage(callback,currentpage){
-    		// var currentpage = typeof currentpage=='undefined' ? 1:currentpage;
     		io.get($PAGE_DATA['getDemandList'] ,{page:currentpage},function(data){
 	    			if(data.data) {
 	                var data = data.data.rows;
@@ -43,8 +44,8 @@ define(function(require, exports, module) {
 	                } else {
 	                    if (data.length == 0) {
 	                        if(ispull) {
+	                        	ispage = true;
 	                            box.info('别拉了，没有更多数据了！');
-	                            return false;
 	                        }else{
 	                            jAppend.append('<p>暂无数据</p>');
 	                        }
@@ -67,9 +68,8 @@ define(function(require, exports, module) {
 
         function getHalldata(data){
     	var str='';
-    	// for(var i = 0; i<data.length; i++){
     	str+='		<li class="main-con">';
-    	str+='        <a href="">';
+    	str+='        <a href="'+$PAGE_DATA['demandDetailsUrl']+data.id+'>';
     	str+='			<div class="con-t">';
     	str+='				<i class="head"><img src="'+data.avatarUrl+'"></i>';
     	str+='				<span class="user">'+data.fromName+'</span>';
@@ -96,6 +96,4 @@ define(function(require, exports, module) {
    
 });
 
-    
- 	// str+='					<span class="soft">'+data.data.rows.serviceT+'</span>';
 

@@ -11,7 +11,7 @@
 				"contactInfo":"15925656279",
 				"createTime":"2016-08-25 15:52:51",
 				"demandStatus":"审核中",
-				"detail":"详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情",
+				"detail":"详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详",
 				"disabled":0,
 				"dockingCount":2,
 				"expireTime":"2016-09-07 00:00:00",
@@ -30,7 +30,7 @@
 				"showVendorDockingStatus":null,
 				"status":3,
 				"title":"咳咳咳咳咳咳咳咳咳咳咳咳",
-				"unReadCount":0,
+				"unReadCount":1,
 				"updateTime":"2016-09-19 14:07:21",
 				"vendorStatus":0
 			},
@@ -60,7 +60,7 @@
 				"showVendorDockingStatus":null,
 				"status":3,
 				"title":"咳咳咳咳咳咳咳咳咳咳咳咳",
-				"unReadCount":0,
+				"unReadCount":2,
 				"updateTime":"2016-09-19 14:07:21",
 				"vendorStatus":0
 			},

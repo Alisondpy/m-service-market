@@ -8,6 +8,7 @@ define(function(require, exports, module) {
 
     var url = $PAGE_DATA['getPersonInfo'] ;
     var jIpt = $('#jIpt');
+    var jStatus = $('#jTap .jStatus');
     var jCreatItem = $('#jCreatItem');
     var currentpage = 1;
     var ispull = false;
@@ -25,6 +26,9 @@ define(function(require, exports, module) {
 
     //页面初始化;
     function pageInit() {
+        if(jIpt.val()) {
+            jStatus.eq(jIpt.val()).addClass('active').siblings().removeClass('active');
+        }
         creatPersonInfo();
     }
     pageInit();
@@ -32,7 +36,7 @@ define(function(require, exports, module) {
     //调用后台数据
     function creatPersonInfo(callback, currentpage) {
         var currentpage = typeof currentpage=='undefined' ? 1:currentpage;
-        IO.get(url, {status:jIpt.val(), page:currentpage}, function (res) {
+        IO.get(url, {type:jIpt.val(), page:currentpage}, function (res) {
             if(res.data) {
                 var data = res.data.rows;
                 var str='';
@@ -69,7 +73,7 @@ define(function(require, exports, module) {
     function creatItem(data) {
         var str='';
             str+='<li class="item">';
-            str+=    '<a href="#">';
+            str+=    '<a href="'+$PAGE_DATA['toMyDemandDetail']+data.id+'">';
             str+=        '<div class="top">';
             for (var j = 0; j < data.serviceTypes.length; j++) {
                  str+= '<span class="f-l"><i class="tool">'+data.serviceTypes[j].name+'</i></span>';
@@ -77,7 +81,11 @@ define(function(require, exports, module) {
            
             str+=            '<span class="price f-r">'+data.showMoney+'</span>';
             str+=        '</div>';
-            str+=        '<h3 class="title txt-overflow">'+data.title+'</h3>';
+            if(data.unReadCount>0){
+                 str+= '<h3 class="title txt-overflow"><i class="tip active"></i>'+data.title+'</h3>';
+            }else {
+                 str+= '<h3 class="title txt-overflow"><i class="tip"></i>'+data.title+'</h3>';
+            }
             str+=        '<div class="describe">';
             str+=            '<p class="p">'+data.detail+'</p>';
             str+=        '</div>';

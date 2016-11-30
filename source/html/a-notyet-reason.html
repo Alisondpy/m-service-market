@@ -5,8 +5,10 @@
     <title>需求详情页-不同状态</title>
     <!--#include file="./common/meta.html"-->
     <!--#include file="./common/css.html"-->
-    <link rel="stylesheet" type="text/css" href="../fonts/isema/iconfont.css" />
     <link rel="stylesheet" href="/css/conf/a-notyet-reason.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript">
+        $PAGE_DATA['postInfo'] = '/m-service-market/source/api/a-service/a-service-need.json';
+    </script>
 </head>
 <body>
     <!--#include file="./common/header.html"-->
@@ -19,18 +21,18 @@
     <div class="mod-main">
         <form action="" id="jForm">
             <!-- <input type="hidden" id="jIpthi" value="" name="idStatus"> -->
-            <label class="status active" data-id="0"><span class="reason">1. 改变了需求方案</span><i class="isema isema-success f-r"></i></label>
-            <label class="status" data-id="1"><span class="reason">2. 通过其他途径解决了方案</span><i class="isema isema-success f-r"></i></label>
-            <label class="status" data-id="2"><span class="reason">3. *************************</span><i class="isema isema-success f-r"></i></label>
-            <label class="status" data-id="3"><span class="reason">4. *************************</span><i class="isema isema-success f-r"></i></label>
-            <label class="status" for="txt" data-id="4"><span class="reason">5. 其他原因</span><i class="isema isema-success f-r"></i></label>
+            <label class="status" data-id="改变了需求方案"><span class="reason">1. 改变了需求方案</span><i class="isema isema-success f-r"></i></label>
+            <label class="status" data-id="通过其他途径解决了方案"><span class="reason">2. 通过其他途径解决了方案</span><i class="isema isema-success f-r"></i></label>
+            <label class="status" data-id="*************************</"><span class="reason">3. *************************</span><i class="isema isema-success f-r"></i></label>
+            <label class="status" data-id="*************************</"><span class="reason">4. *************************</span><i class="isema isema-success f-r"></i></label>
+            <label class="status" for="txt" data-id="其他原因" data-type><span class="reason">5. 其他原因</span><i class="isema isema-success f-r"></i></label>
             <textarea name="txtStatus" disabled="disabled" class="ui-input" id="jTxt" placeholder="请输入未完成对接的原因....."></textarea>
         </form>
     </div>
     <!-- 选择状态 end-->
     <!-- 提交按钮 start-->
     <div class="mod-btn w-750">
-        <input type="button" data-type="sendPost" data-async-text="登录中..." class="ui-btn ui-btn-primary" id="jSubmit" name="" value="提交" />
+        <input type="button"  data-type="tips"  class="ui-btn ui-btn-primary" id="jSubmit" name=""  data-async-text="正在提交，请稍后..." value="提交" />
     </div>
     <!-- 提交按钮 end-->
     <!--#include file="./common/footer.html"-->

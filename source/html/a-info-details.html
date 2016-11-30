@@ -38,12 +38,10 @@
 
      <!-- 接受投标按钮 -->
     <div class="mod-btn w-750">
-        <input type="button" class="ui-btn ui-btn-primary" id="jAcceptBid" name="accept-bid" value="接受投标" />
-    </div>
-    <div class="mod-layer">
-        <div class="layer"></div>
-        <div class="pop-up">
-            
+        <input type="button" class="ui-btn ui-btn-primary max-width" id="jAcceptBid" name="accept-bid" value="接受投标" />
+        <div class="notyet">
+            <input type="button" class="ui-btn ui-btn-danger half-width" id="jNotYet" value="未对接完成" />
+            <input type="button" data-async-text="登录中..." class="ui-btn ui-btn-primary half-width" id="jDone" value="完成对接" />
         </div>
     </div>
     <!--#include file="./common/footer.html"-->

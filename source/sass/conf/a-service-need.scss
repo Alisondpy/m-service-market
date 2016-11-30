@@ -82,6 +82,19 @@ html,body{
 				font-size: 30px;/*px*/
 			}
 		}
+		.title{
+			width: 300px;
+			.tip{
+				&.active{
+				display: inline-block;
+				margin-right: 5px;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: red;
+				}
+			}
+		}
 		.describe{
 			margin-top: 12px; 
 			width: 675px;

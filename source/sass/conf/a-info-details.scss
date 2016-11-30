@@ -82,8 +82,13 @@ html,body{
 	width: 100%;
 	text-align: center;
 	padding: 25px 0;
-	.ui-btn{
+	.max-width{
+		display: none;
 		width: 680px;
+	}
+	.notyet{
+		display: block;
+
 	}
 }
 

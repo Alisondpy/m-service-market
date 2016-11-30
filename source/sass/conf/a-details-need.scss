@@ -18,8 +18,9 @@ html, body{
 	border-top: 1px solid #d6d6d6;/*no*/
 	background-color: #fff;
 	.top{
-		line-height: 40px;
+		line-height: 26px;
 		.tool{
+			font-size: 20px;/*px*/
 			display: inline-block;
 			padding: 0 4px;
 			border: 1px solid #40d1ad;/*no*/
@@ -28,26 +29,21 @@ html, body{
 		}
 	}
 	.title{
-		position: relative;
 		height: 50px;
 		line-height: 50px;/*px*/
 		font-weight: bold;
-		font-size: 24px;/*px*/
+		font-size: 32px;/*px*/
+		overflow: hidden;
 		.name{
-			position: absolute;
 			display: inline-block;
-			left: 0;
 			font-weight: bold;
 		}
 		.price{
-			position: absolute;
 			display: inline-block;
-			right: 0;
 			color: #40d1ad;
 		}
 	}
 	.bottom{
-		position: relative;
 		height: 50px;
 		line-height: 50px;/*px*/
 		font-size: 20px;/*px*/
@@ -55,16 +51,13 @@ html, body{
 			font-style: normal;
 		}
 		.upto, .bid{
-			position: absolute;
 			display: inline-block;
 			color: #b0b0b0;
 		}
 		.bid{
-			left: 0;
 			color: #b0b0b0;
 		}
 		.upto{
-			right: 0;
 			.i{
 				color: #ffb712;
 				margin-left: 10px;
@@ -106,23 +99,15 @@ html, body{
 		padding: 0 25px;
 		background-color: #fff;
 		.item{
-			position: relative;
 			height: 80px;
 			line-height: 80px;/*px*/
 			border-bottom: 1px solid #ccc;
 			font-size: 24px;
 			color: #40d1ad;
 			.companny, .status{
-				position: absolute;
 				height: 80px;
 				line-height: 80px;/*px*/
 				display: inline-block;
-			}
-			.companny{
-				left: 0;
-			}
-			.status{
-				right: 0;
 			}
 		}
 	}

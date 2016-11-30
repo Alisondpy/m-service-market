@@ -6,7 +6,7 @@ define(function(require, exports, module) {
     var form = require('lib/core/1.0.0/utils/form');
 
     //$('#jAccept-bid').tap(function () {
-    	console.log('接受成功');
+    	box.alert('接受成功');
     //})
     /*io.get('url', {}, function(){
     	

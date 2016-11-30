@@ -18,19 +18,19 @@
     <!-- 选择状态 start-->
     <div class="mod-main">
         <form action="" id="jForm">
-            <input type="hidden" id="one" value="还未设置" name="idStatus">
+            <!-- <input type="hidden" id="jIpthi" value="" name="idStatus"> -->
             <label class="status active" data-id="0"><span class="reason">1. 改变了需求方案</span><i class="isema isema-success f-r"></i></label>
             <label class="status" data-id="1"><span class="reason">2. 通过其他途径解决了方案</span><i class="isema isema-success f-r"></i></label>
             <label class="status" data-id="2"><span class="reason">3. *************************</span><i class="isema isema-success f-r"></i></label>
             <label class="status" data-id="3"><span class="reason">4. *************************</span><i class="isema isema-success f-r"></i></label>
             <label class="status" for="txt" data-id="4"><span class="reason">5. 其他原因</span><i class="isema isema-success f-r"></i></label>
-            <textarea name="txtStatus" class="ui-input" id="txt" placeholder="请输入未完成对接的原因....."></textarea>
+            <textarea name="txtStatus" disabled="disabled" class="ui-input" id="jTxt" placeholder="请输入未完成对接的原因....."></textarea>
         </form>
     </div>
     <!-- 选择状态 end-->
     <!-- 提交按钮 start-->
     <div class="mod-btn w-750">
-        <input type="button" class="ui-btn ui-btn-primary" id="jSubmit" name="" value="提交" />
+        <input type="button" data-type="sendPost" data-async-text="登录中..." class="ui-btn ui-btn-primary" id="jSubmit" name="" value="提交" />
     </div>
     <!-- 提交按钮 end-->
     <!--#include file="./common/footer.html"-->

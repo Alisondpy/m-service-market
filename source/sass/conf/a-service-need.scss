@@ -38,9 +38,19 @@ html,body{
 	}
 }
 .mod-main{
+	position: absolute;
+    z-index: 1;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
 	width:710px;
 	padding: 0 20px;
 	margin: 0 auto;
+	.ui-empty-list{
+		padding: 50% 0;
+	}
 	.item{
 		width: 670px;
 		height: 185px;
@@ -58,11 +68,12 @@ html,body{
 				display: inline-block;
 			}
 			.tool{
-				padding: 4px;
+				margin-right: 10px;
+				padding: 2px;
 				border:1px solid #40d1ad;/*no*/
 				font-style: normal;
 				border-radius: 4px;
-				font-size: 22px;/*px*/
+				font-size: 20px;/*px*/
 				color: #40d1ad;
 			}
 			.price{
@@ -99,5 +110,22 @@ html,body{
 	}
 }
 
-
+.pull-down, .pull-up {
+        display: none;
+        font-size: 24px;/*px*/
+        width: 100%;
+        color: #333;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        vertical-align: middle;
+        .isema{
+            font-size: 24px;/*px*/
+        }
+        .isema-loading{
+            display: inline-block;
+            animation: spinner-spin 1s step-end infinite;
+            margin-right: 3px;
+        }
+    }
 

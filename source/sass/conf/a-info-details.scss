@@ -36,12 +36,13 @@ html,body{
 	.describe{
 		float: left;
 		.title{
-			margin-top: 40px;
+			margin-top: 35px;
+			line-height: 30px;
 			font-size: 30px;/*px*/
-			font-weight: bold;
+			font-weight: bold;	
 		}
 		.tel-num{
-			margin-top: 15px;
+			margin-top: 10px;
 			color: #999;
 			.isema{
 				margin-right: 4px;

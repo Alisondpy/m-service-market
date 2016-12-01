@@ -6,21 +6,13 @@ define(function(require, exports, module) {
   
 
 
-    $('.jCompany').click(function(){
-		$('.jCompany').css({
-			'border-bottom':'3px solid #0044CC'
-		}).find($('.jService').css({
-				'border-bottom':'none'
-			}));
+    $('.one').click(function(){
+		$(this).addClass('active').siblings().removeClass('active')
 			$('.jTab1').css('display','block').find($('.jTab2').css('display','none'));
 		})
 	
-    $('.jService').click(function(){
-    	$('.jCompany').css({
-    		'border-bottom':'none'
-    	}).find($('.jService').css({
-    		'border-bottom':'3px solid #0044CC'
-    		}));
+    $('.two').click(function(){
+    	$(this).addClass('active').siblings().removeClass('active');
 			$('.jTab2').css('display','block').find($('.jTab1').css('display','none'));
     		 //image-lazyload 
             var lazy = new Lazyload($('.jImg'), {

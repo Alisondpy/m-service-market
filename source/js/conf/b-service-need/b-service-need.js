@@ -6,7 +6,7 @@ define(function(require, exports, module) {
     var build = require('lib/core/1.0.0/dom/build');
     var PullToRefresh = require('plugins/pull-to-refresh/1.0.0/pull-to-refresh');
 
-    var url = $PAGE_DATA['getPersonInfo'] ;
+    var url = $PAGE_DATA['getPersonInfo'] ;//接口地址还没有  参数已改，已经模拟成功
     var jIpt = $('#jIpt');
     var jStatus = $('#jTap .jStatus');
     var jCreatItem = $('#jCreatItem');
@@ -69,7 +69,7 @@ define(function(require, exports, module) {
         })
     }
 
-    //列表标签拼接
+    //列表标签拼接（接口没有，参数已经修改，已经模拟成功）
     function creatItem(data) {
         var str='';
             str+='<li class="item">';
@@ -91,7 +91,7 @@ define(function(require, exports, module) {
             str+=        '</div>';
             str+=        '<div class="bottom">';
             str+=            '<span class="bid f-l"><i class="bid-number">'+data.dockingCount+'</i>个投标</span>';
-            str+=            '<span class="status f-r">'+data.demandStatus+'</span>';
+            str+=            '<span class="status f-r">'+data.showVendorDockingStatus+'</span>';
             str+=        '</div>';
             str+=    '</a>';
             str+='</li>';

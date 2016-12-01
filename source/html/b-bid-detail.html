@@ -7,6 +7,10 @@
     <!--#include file="./common/css.html"-->
     <link rel="stylesheet" href="/css/conf/b-bid-detail.css" type="text/css" charset="utf-8" />
 </head>
+<script type="text/javascript">
+    // /ven/demand/vendorDemand
+     $PAGE_DATA['infoDetails'] = '/m-service-market/source/api/hall/post.json';
+</script>
 <body>
     <!--#include file="./common/header.html"-->
     <!-- 我发布需求的状态 -->
@@ -31,12 +35,12 @@
         </div>
     </div>
     <div class="mod-btn w-750">
-        <input type="button" class="ui-btn ui-btn-primary" id="jAcceptBid" name="accept-bid" value="接受投标" />
+        <input type="button" class="ui-btn ui-btn-primary" id="jBid" name="bid" value="投标" />
     </div>
     <!--#include file="./common/footer.html"-->
     <!--#include file="./common/js.html"-->
     <script type="text/javascript"> 
-        require(['conf/?'],function(){});
+        require(['conf/b-service-need/b-bid-detail'],function(){});
     </script>
     <!--#include file="./common/tj.html"-->
     <!--#include file="./common/statistics.html"-->

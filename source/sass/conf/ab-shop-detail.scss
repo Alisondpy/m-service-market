@@ -6,6 +6,7 @@ a{
     font-weight: bold;
     font-size: 26px;
 }
+
 .mod-top{
     width:100%;
     height: 236px;
@@ -67,9 +68,17 @@ a{
                display: inline-block;
                width: 110px;
                height: 80px;
-               border-bottom: 3px solid #0044CC;
            }
+
+            &.active{
+              .company{
+                border-bottom: 3px solid #0044CC;
+              }
+            }
+            
        }
+    
+
        .two{
            width: 49%;
            height: 85px;
@@ -80,7 +89,13 @@ a{
                display: inline-block;
                width: 110px;
                height: 80px;
+              
            }
+          &.active{
+                .service{
+                 border-bottom: 3px solid #0044CC;
+               }
+               }
        }
     }
    .mod-tab1{

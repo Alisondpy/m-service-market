@@ -5,8 +5,10 @@
     <title>发布需求</title>
     <!--#include file="./common/meta.html"-->
     <!--#include file="./common/css.html"-->
-    <link rel="stylesheet" type="text/css" href="../fonts/isema/iconfont.css" />
     <link rel="stylesheet" href="/css/conf/a-info-details.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript">
+        $PAGE_DATA['infoDetails'] = '/m-service-market/source/api/a-service/details.json';
+    </script>
 </head>
 <body>
     <!--#include file="./common/header.html"-->
@@ -15,7 +17,6 @@
         <div class="logo">
             <div class="img">
                 <img src="http://img01.taopic.com/150706/240384-150F615163195.jpg" alt="logo"/>
-                <!-- <span></span> -->
             </div>
         </div>
         <div class="describe">
@@ -38,10 +39,15 @@
 
      <!-- 接受投标按钮 -->
     <div class="mod-btn w-750">
-        <input type="button" class="ui-btn ui-btn-primary max-width" id="jAcceptBid" name="accept-bid" value="接受投标" />
+        <!-- 准备接受时用的按钮样式，浅蓝色 -->
+        <!-- <input type="button" class="ui-btn ui-btn-primary max-width" id="jAcceptBid" name="accept-bid" value="接受投标" /> -->
+        <!-- 已接受时用的按钮样式，灰色 -->
+        <!-- <input type="button" class="ui-btn ui-btn-disabled max-width" value="已接受投标，等待服务商联系" /> -->
+        
+        <!-- 对接时用的按钮 -->
         <div class="notyet">
-            <input type="button" class="ui-btn ui-btn-danger half-width" id="jNotYet" value="未对接完成" />
-            <input type="button" data-async-text="登录中..." class="ui-btn ui-btn-primary half-width" id="jDone" value="完成对接" />
+            <a href="" class="a"><input type="button" class="ui-btn ui-btn-danger half-width" value="未对接完成" /></a>
+            <input type="button" class="ui-btn ui-btn-primary half-width" id="jDone" value="完成对接" />
         </div>
     </div>
     <!--#include file="./common/footer.html"-->

@@ -9,7 +9,8 @@
 </head>
 <body>
     <!--#include file="./common/header.html"-->
-    <!-- 需求详情头部 -->
+    <!-- 服务商的需求详情头部  -->
+    <!-- 需求大厅跳转过来的  进行中的状态   -->
     <div class="mod-top w-750">
         <div class="top">
             <span class="tool">软件工具</span>
@@ -23,6 +24,91 @@
             <span class="upto"><em>(12个小时后截至)</em><i>进行中</i></span>
         </div>
     </div>
+    <!-- 需求大厅跳转过来的 进行中的状态 结束 -->
+
+    <!-- 已中标状态 -->
+     <div class="mod-top w-750 mod-status0">
+        <div class="top">
+            <span class="tool">软件工具</span>
+        </div>
+        <div class="title">
+            <span class="name">super ERP</span>
+            <span class="price">20-30K</span>
+        </div>
+        <div class="bottom">
+            <span class="bid"><i>3</i>个投标</span>
+            <span class="upto"><i>已中标</i></span>
+        </div>
+    </div>
+    <!-- 已中标状态结束 -->
+
+
+    <!-- 未中标的状态 -->
+     <div class="mod-top w-750 mod-status1">
+        <div class="top">
+            <span class="tool">软件工具</span>
+        </div>
+        <div class="title">
+            <span class="name">super ERP</span>
+            <span class="price">20-30K</span>
+        </div>
+        <div class="bottom">
+            <span class="bid"><i>3</i>个投标</span>
+            <span class="upto"><i>未中标</i></span>
+        </div>
+    </div>
+    <!-- 未中标的状态结束 -->
+
+    <!-- 未完成对接的状态 -->
+    <div class="mod-top w-750 mod-status2">
+        <div class="top">
+            <span class="tool">软件工具</span>
+        </div>
+        <div class="title">
+            <span class="name">super ERP</span>
+            <span class="price">20-30K</span>
+        </div>
+        <div class="bottom">
+            <span class="bid"><i>3</i>个投标</span>
+            <span class="upto"><i>未完成对接</i></span>
+        </div>
+    </div>
+    <!-- 未完成对接的状态 -->
+
+    <!-- 确认的状态 -->
+    <div class="mod-top w-750 mod-status3">
+        <div class="top">
+            <span class="tool">软件工具</span>
+        </div>
+        <div class="title">
+            <span class="name">super ERP</span>
+            <span class="price">20-30K</span>
+        </div>
+        <div class="bottom">
+            <span class="bid"><i>3</i>个投标</span>
+            <span class="upto"><i>已完成对接</i></span>
+        </div>
+    </div>
+    <!-- 确认状态结束 -->
+
+    <!-- 待确认状态 -->
+    <div class="mod-top w-750 mod-status4">
+        <div class="top">
+            <span class="tool">软件工具</span>
+        </div>
+        <div class="title">
+            <span class="name">super ERP</span>
+            <span class="price">20-30K</span>
+        </div>
+        <div class="bottom">
+            <span class="bid"><i>3</i>个投标</span>
+            <span class="upto"><i>未完成对接</i></span>
+        </div>
+    </div>
+    <!-- 待确认状态结束 -->
+
+    <!-- 服务商的需求详情头部结束 -->
+
     <!-- 需求描述 -->
     <div class="mod-main w-750">
         <div class="title">需求描述</div>
@@ -45,13 +131,28 @@
         </ul>
     </div>
 
-     <div class="mod-btn w-750">
-        <button class="ui-btn ui-btn-primary">我要投标</button>
+    <!-- 按钮样式start -->
+
+    <!-- 我要投标的按钮状态 -->
+ <!--     <div class="mod-btn w-750">
+        <button class="ui-btn ui-btn-primary jBid">我要投标</button>
     </div>
+ -->
+    <!-- 查看联系方式的按钮状态 -->
+    <div class="mod-btn w-750">
+        <button class="ui-btn ui-btn-primary jTouch">查看联系方式</button>
+    </div>
+
+    <!-- 已投标的按钮状态 -->
+<!--     <div class="mod-btn w-750">
+        <button class="ui-btn ui-btn-disabled jDisabled">已投标，等待需求方接受投标</button>
+    </div> -->
+    <!-- 按钮样式end -->
+
     <!--#include file="./common/footer.html"-->
     <!--#include file="./common/js.html"-->
     <script type="text/javascript"> 
-        require(['conf/b-service-need/b-detiles-need'],function(){});
+        require(['conf/b-service-need/b-detailes-need'],function(){});
     </script>
     <!--#include file="./common/tj.html"-->
     <!--#include file="./common/statistics.html"-->

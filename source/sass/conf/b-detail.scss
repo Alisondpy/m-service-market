@@ -116,8 +116,9 @@ h1,p{
        .fb{
            width: 294px;
            height: 119px;
-           font-size: 26px;
-           background-color: #00e3b7;
+           font-size: 26px;/*px*/
+           background:url(../../images/b-person/bg-l.png) no-repeat;
+           background-size:cover;
            color: #fff;
            border: none;
            .isema-publish{
@@ -129,10 +130,10 @@ h1,p{
        .zx{
            width: 456px;
            height: 119px;
-           font-size: 26px;
-           background-color: #eee;
+           font-size: 26px;/*px*/
+           background:url(../../images/b-person/bg-r.png) no-repeat;
+           background-size:cover;
            border: none;
        }
    }
 }
-

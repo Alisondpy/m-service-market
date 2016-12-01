@@ -19,7 +19,6 @@ define(function(require, exports, module) {
     	});
 
     	
-		var loadingBox
     	pullRefresh.on('pullUp',function(callback){
     		if(ispage == true){
     			currentpage = currentpage;
@@ -69,7 +68,7 @@ define(function(require, exports, module) {
         function getHalldata(data){
     	var str='';
     	str+='		<li class="main-con">';
-    	str+='        <a href="'+$PAGE_DATA['demandDetailsUrl']+data.id+'>';
+    	str+='        <a href="'+$PAGE_DATA['demandDetailsUrl']+data.id+'">';
     	str+='			<div class="con-t">';
     	str+='				<i class="head"><img src="'+data.avatarUrl+'"></i>';
     	str+='				<span class="user">'+data.fromName+'</span>';

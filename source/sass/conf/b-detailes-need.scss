@@ -72,6 +72,57 @@ html, body{
 		}
 	}
 }
+// 已中标状态
+.mod-status0{
+	.bottom{
+		.upto{
+			i{
+				color:#40d1ad;
+			}
+		}
+	}
+}
+// 未中标的状态
+.mod-status1{
+	.bottom{
+		.upto{
+			i{
+				color: #eee;
+			}
+		}
+	}
+}
+// 未完成对接的状态
+.mod-status2{
+	.bottom{
+		.upto{
+			i{
+				color: #ff4545;
+			}
+		}
+	}
+}
+// 确认的状态
+.mod-status3{
+	.bottom{
+		.upto{
+			i{
+				color: #40d1ad;
+			}
+		}
+	}
+}
+// 待确认状态
+.mod-status4{
+	.bottom{
+		.upto{
+			i{
+				color: #ffb712;
+			}
+		}
+	}
+}
+
 //需求描述样式
 .mod-main{
 	border-top: 1px solid #d7d7d7;/*no*/

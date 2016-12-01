@@ -36,6 +36,7 @@ html,body{
 	.describe{
 		float: left;
 		.title{
+			width: 300px;
 			margin-top: 35px;
 			line-height: 30px;
 			font-size: 30px;/*px*/
@@ -83,12 +84,13 @@ html,body{
 	text-align: center;
 	padding: 25px 0;
 	.max-width{
-		display: none;
+		display: inline-block;
 		width: 680px;
 	}
 	.notyet{
 		display: block;
-
+		.a{
+			display: inline-block;
+		}
 	}
 }
-

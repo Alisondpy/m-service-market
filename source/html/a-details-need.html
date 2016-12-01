@@ -7,7 +7,7 @@
     <!--#include file="./common/css.html"-->
     <link rel="stylesheet" href="/css/conf/a-details-need.css" type="text/css" charset="utf-8" />
     <script type="text/javascript">
-        $PAGE_DATA['data'] = '/m-service-market/source/api/a-service/details.json';
+        $PAGE_DATA['detailsNeed'] = '/m-service-market/source/api/a-service/details.json';
     </script>
 </head>
 <body>
@@ -74,7 +74,7 @@
             <li class="item">
                 <a href="" class="a">
                     <span class="companny txt-overflow f-l">广告设计公司</span>
-                    <span class="status txt-overflow cl-lightblue f-r">2016.11.30</span>
+                    <span class="status txt-overflow f-r">2016.11.30</span>
                 </a>
             </li>
         </ul>
@@ -85,28 +85,22 @@
     <div class="mod-bottom  w-750">
         <div class="butt-vendor"><span>对接服务商</span></div>
         <ul class="creat-item">
-            <li class="item">
+            <li class="item cl-red">
                 <a href="" class="a">
                     <span class="companny txt-overflow f-l">广告设计公司</span>
-                    <span class="status txt-overflow cl-red f-r">已接受</span>
+                    <span class="status txt-overflow f-r">过期</span>
+                </a>
+            </li>
+            <li class="item cl-lightblue">
+                <a href="" class="a">
+                    <span class="companny txt-overflow f-l">广告设计公司</span>
+                    <span class="status txt-overflow f-r">已接受</span>
                 </a>
             </li>
             <li class="item">
                 <a href="" class="a">
                     <span class="companny txt-overflow f-l">广告设计公司</span>
-                    <span class="status txt-overflow cl-red f-r">已接受</span>
-                </a>
-            </li>
-            <li class="item">
-                <a href="" class="a">
-                    <span class="companny txt-overflow f-l">广告设计公司</span>
-                    <span class="status txt-overflow cl-red f-r">已接受</span>
-                </a>
-            </li>
-            <li class="item">
-                <a href="" class="a">
-                    <span class="companny txt-overflow f-l">广告设计公司</span>
-                    <span class="status txt-overflow cl-red f-r">已接受</span>
+                    <span class="status txt-overflow f-r">审核中</span>
                 </a>
             </li>
         </ul>
@@ -114,17 +108,17 @@
     <!-- 对接服务商 end-->
 
     <!-- 对接服务商按钮样式 start-->
-    <div class="mod-btn  w-750">
+    <!-- <div class="mod-btn  w-750">
         <input type="button" class="ui-btn ui-btn-primary max-width" id="jConcat" name="accept-bid" value="联系服务商" />
-    </div>
+    </div> -->
     <!-- 按钮样式 end-->
 
 
     <!-- 投标记录按钮样式 start-->
-    <!-- <div class="mod-btn w-750">
-        <input type="button" class="ui-btn ui-btn-info half-width" id="jChange" value="修改需求" />
+    <div class="mod-btn w-750">
+        <a href="" class="a"><input type="button" class="ui-btn ui-btn-info half-width" value="修改需求" /></a>
         <input type="button" class="ui-btn ui-btn-danger half-width" id="jDel" value="删除需求" />
-    </div> -->
+    </div>
     <!-- 按钮样式 end-->
 
     <!--#include file="./common/footer.html"-->

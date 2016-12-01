@@ -56,7 +56,7 @@ define(function(require, exports, module) {
             return ;
         }
         postserver($PAGE_DATA['postInfo'],istxt?txtarea.val():choice.get());
-            console.log(istxt?txtarea.val():choice.get());
+            //console.log(istxt?txtarea.val():choice.get());
     });
     //封装传送数据函数
     function postserver(url, setvalue){

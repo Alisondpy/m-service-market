@@ -11,25 +11,46 @@ define(function(require, exports, module) {
     jDel.tap(function () {
            Box.confirm('您将要删除您的需求，删除后将无法找回',
             function() {
-                Io.get(url, {id:id}, function(res){
-                    if(res.data.error < 0){
-                        //Box.warn('加载数据失败，再试下看看！');
-                        Box.warn(res.data.msg);
-                    }else{
-                        window.location.href = res.data.url;
-                    }
-                }, function () {
-                    Box.warn('网络错误');
-                })
-                //Box.tips('删除成功');
+                removeNeed($PAGE_DATA['detailsNeed']);
             },
             function() {
                 Box.tips('取消成功');
             }
         );
     })
-    //
+
+    function removeNeed(url){
+        Io.get( url, {}, function(res) {
+            if(res.error < 0){
+                Box.warn('加载数据失败，再试下看看！');
+                //Box.warn(res.data.msg);
+            }else {
+                var tips = Box.ok('删除成功');
+                        tips.on('hide',function(){
+                            window.location.reload();
+                        });
+            }
+        }, function () {
+            Box.warn('网络错误！');
+        }, this);
+    }
+    //查看联系方式
     jConcat.tap(function(){
-        Box.alert('联系方式:');
+        alertbox.show();
     })
+    var alertbox = Box.create({
+        content: '<div class="smallbox"><div class="title">联系方式 :</div><p class="content">0571-1234567</p></div>',
+        className: 'ui-bubble',
+        autofocus: false,
+        autoRelease: true,
+        close: false,
+        xtype: 'none',
+        align: 'top',
+        duration: 0,
+        button:[
+            { text: '知道了', fn: function(e) { } }
+        ],
+        hideWithAni: 'fadeOut',
+        showWithAni: 'fadeInUp'  
+    });
 });

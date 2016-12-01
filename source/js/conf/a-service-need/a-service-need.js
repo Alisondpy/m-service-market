@@ -26,9 +26,6 @@ define(function(require, exports, module) {
 
     //页面初始化;
     function pageInit() {
-        if(jIpt.val()) {
-            jStatus.eq(jIpt.val()).addClass('active').siblings().removeClass('active');
-        }
         creatPersonInfo();
     }
     pageInit();
@@ -50,7 +47,7 @@ define(function(require, exports, module) {
                         if(ispull) {
                             Box.info('别拉了，没有更多数据了！');
                         }else{
-                            jCreatItem.append('<div class="ui-empty-list"><div class="isema isema-box"></div><div class="txt">我是文案</div></div>');
+                            jCreatItem.append('<div class="ui-empty-list"><div class="isema isema-box"></div><div class="txt">暂时没有相关内容</div></div>');
                         }
                     } else {
                         jCreatItem.append(str);

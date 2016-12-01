@@ -62,33 +62,15 @@ html, body{
 			.i{
 				font-weight: bold;
 				margin-left: 10px;
-			}
-		}
-	}
-}
-.mod-top0{
-	.bottom{
-		.upto{
-			.i{
-				color: #ffb712;
-			}
-		}
-	}
-}
-.mod-top1{
-	.bottom{
-		.upto{
-			.i{
-				color: #40d1ad;
-			}
-		}
-	}
-}
-.mod-top2{
-	.bottom{
-		.upto{
-			.i{
-				color: #ff4545;
+				&.cl-red{
+					color: #ff4545;
+				}
+				&.cl-lightblue{
+					color: #40d1ad;
+				}
+				&.cl-orange{
+					color: #ffb712;
+				}
 			}
 		}
 	}
@@ -165,6 +147,7 @@ html, body{
 .mod-btn{
 	position: fixed;
 	bottom: 0;
+	z-index: 99;
 	border-top: 1px solid #ccc;/*no*/
 	background-color: #fff;
 	width: 100%;

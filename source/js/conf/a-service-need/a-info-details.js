@@ -18,18 +18,13 @@ define(function(require, exports, module) {
 
     function fnSubmit(url, content) {
         Io.get(url, {}, function (res) {
-            if(res.data.error < 0){
-                Box.warn('加载数据失败，再试下看看！');
-               //Box.warn(res.data.msg);
+            if(res.data.error == 0){
+                var tips = Box.ok( content );
+                        tips.on('hide',function(){
+                        window.location.reload();
+                    });
             }else{
-                if(res.data.id == 1) {
-                    var tips = Box.ok( content );
-                            tips.on('hide',function(){
-                            window.location.reload();
-                        });
-                }else if(res.data.id == 0){
-                    Box.warn('服务忙，请稍后再试');
-                }
+                Box.warn(res.data.msg);
             }
         }, function (res) {
             Box.warn('网络错误');

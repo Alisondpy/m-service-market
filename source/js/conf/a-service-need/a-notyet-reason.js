@@ -37,7 +37,6 @@ define(function(require, exports, module) {
         return _this.value;
     }
     var choice = new ChoiceStatus('#jForm');
-    //choice.get()
 
     /*--提交判断--*/
     $('#jSubmit').on('tap',function(){
@@ -56,19 +55,17 @@ define(function(require, exports, module) {
             return ;
         }
         postserver($PAGE_DATA['postInfo'],istxt?txtarea.val():choice.get());
-            //console.log(istxt?txtarea.val():choice.get());
     });
     //封装传送数据函数
     function postserver(url, setvalue){
         Io.get( url, { 'reason': setvalue, 'demandId':demandId.val(),'vendorId': vendorId.val()}, function(res) {
             if(res.error < 0){
                 Box.warn('加载数据失败，再试下看看！');
-
             }else {
                 var tips = Box.ok('感谢您的反馈,缺地址。。');
-                /*tips.on('hide',function(){
-                    window.location.href = res.data.url;
-                });*/
+                tips.on('hide',function(){
+                    window.location.href = '／user/userCenter';
+                });
             }
         }, function () {
             Box.warn('网络错误！');

@@ -69,7 +69,7 @@ define(function(require, exports, module) {
 
     PullToRefresh.prototype._initEvent = function() {
         var _this = this;
-        // document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
+        document.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
         _this.iscroll.on('scrollStart', function() {
             _this.pullType = null;
             _this._isDo = false;

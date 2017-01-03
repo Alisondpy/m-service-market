@@ -24,6 +24,8 @@ define(function(require, exports, module) {
     //搜索框改版搜索类型
     searchBox.on('changType', function(data) {
         searchUrl.jsonUrl.typeName = data.typeId;
+        searchUrl.jsonUrl.type = '';
+        searchUrl.jsonUrl.serviceScope = '';
         searchUrl.go();
     });
     //搜索框回车或者按钮

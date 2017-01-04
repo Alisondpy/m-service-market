@@ -131,17 +131,21 @@ a{
 					}
 				}
 				.square{
-						position:absolute;
-						top:-8px;
-						right:-8px;
-						width:25px;
-						height:25px;
-						background-color:#f00;
-						border-radius:50%;
-						line-height:25px;
-						font-size:18px;
-						color:#fff;
-					}
+					display: none;
+					position:absolute;
+					top:-8px;
+					right:-8px;
+					width:30px;
+					height:30px;
+					background-color:#f00;
+					border-radius:50%;
+					line-height:30px;
+					font-size:18px;/*px*/
+					color:#fff;
+						&.mark{
+							display: block;
+						}
+				}
 				.isema-doing{
 					font-size:55px;
 					color:#fff;

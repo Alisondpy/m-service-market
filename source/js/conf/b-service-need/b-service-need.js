@@ -26,9 +26,9 @@ define(function(require, exports, module) {
 
     //页面初始化;
     function pageInit() {
-        if(jIpt.val()) {
-            jStatus.eq(jIpt.val()).addClass('active').siblings().removeClass('active');
-        }
+        // if(jIpt.val()) {
+        //     jStatus.eq(jIpt.val()).addClass('active').siblings().removeClass('active');
+        // }
         creatPersonInfo();
     }
     pageInit();
@@ -73,7 +73,7 @@ define(function(require, exports, module) {
     function creatItem(data) {
         var str='';
             str+='<li class="item">';
-            str+=    '<a href="'+$PAGE_DATA['toMyDemandDetail']+data.id+'">';
+            str+=    '<a href="'+$PAGE_DATA['toVendorDemandDetail']+'?demandId='+data.demandId+'&vendorId='+data.vendorId+'">';
             str+=        '<div class="top">';
             for (var j = 0; j < data.serviceTypes.length; j++) {
                  str+= '<span class="f-l"><i class="tool">'+data.serviceTypes[j].name+'</i></span>';

@@ -5,27 +5,30 @@ define(function(require, exports, module) {
     var io = require('lib/core/1.0.0/io/request');
 
     var url = $PAGE_DATA['infoDetails'];
+    var success = $PAGE_DATA['success'];
+    // var no = www.baidu.com;
     var jBid = $('#jBid');
-    var txt = $('.txt').val();
+    var txt = $('.jTxt');
 
 
-     function init(){
-        submit();
-     }
-     init();
-
-jBid.on('click', '.selector', function(event) {
-    event.preventDefault();
-    /* Act on the event */
-});
+jBid.on('click', function(){
+   
+   if(txt.val() == ''){
+        box.warn('内容不能为空');
+   }else{
+    submit();
+   }
+})
     function submit(){
         io.post(url,{
-            id:
-
+           content:txt.val()
         },function(data) {
-               if(error == 0){
-                window.loaction.href="b-public-success.html"
-               }
+            console.log(data);
+           if(data.error == '0'){
+            window.location.href = success
+           }else{
+            box.warn('网络错误');
+           }
         });
     }
 });

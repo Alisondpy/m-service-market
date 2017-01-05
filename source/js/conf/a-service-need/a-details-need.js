@@ -26,9 +26,9 @@ define(function(require, exports, module) {
                 Box.warn(res.data.msg);
             }else {
                 var tips = Box.ok('删除成功');
-                        tips.on('hide',function(){
-                            window.location.reload();
-                        });
+                    tips.on('hide',function(){
+                        window.history.back(-1);
+                    });
             }
         }, function () {
             Box.warn('网络错误！');

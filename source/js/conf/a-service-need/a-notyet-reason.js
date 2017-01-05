@@ -62,9 +62,9 @@ define(function(require, exports, module) {
             if(res.error < 0){
                 Box.warn('加载数据失败，再试下看看！');
             }else {
-                var tips = Box.ok('感谢您的反馈,缺地址。。');
+                var tips = Box.ok('感谢您的反馈!');
                 tips.on('hide',function(){
-                    window.location.href = '／user/userCenter';
+                    window.location.href = $PAGE_DATA['toUserCenter'];
                 });
             }
         }, function () {

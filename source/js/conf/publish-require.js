@@ -10,58 +10,129 @@ define(function(require, exports, module) {
 
     /*交互效果*/
     //分类
+    var label = $('#jClassify label');
+    var categorys = $('#jClassify input[name="categorys"]');
+    var classifyArr = categorys.val().split(",");
+    for(var i=0; i < classifyArr.length; i++){
+        label.each(function(){
+            if($(this).attr('data-value') == classifyArr[i]){
+                $(this).addClass('checked');
+            }
+        });
+    }
+
     function getClassify(){
-        var classify = '';
-        $('#jClassify label').each(function(){
+        var classify = ''
+        label.each(function(){
             if($(this).hasClass('checked')){
                 var val = $(this).attr('data-value');
                 classify = classify+val+',';
             }
         });
-        return classify.substring(0,classify.length-1);
+        classify = classify.substring(0,classify.length-1);
+        return classify;
     };
+
     $('#jClassify').on('tap','label',function(e) {
         if($(e.target).hasClass('checked')){
             $(e.target).removeClass('checked');
-            $('#jClassify input[name="classify"]').val(getClassify());
+            categorys.val(getClassify());
         }else {
-            $(e.target).addClass('checked');
-            $('#jClassify input[name="classify"]').val(getClassify());
+            var num = 0;
+            label.each(function(){
+                if($(this).hasClass('checked')){
+                    num = num+1;
+                };
+            });
+            if(num < 2){
+                $(e.target).addClass('checked');
+                categorys.val(getClassify());
+            }else {
+                box.warn('最多只能选择2个分类');
+            }
         }
     });
 
     //报价
-    var config = {
-        "value0":"<input type='number' name='start' step='0.001' placeholder='0.00'><label class='unit'>元</label>"
-                +"<span>至</span>"
-                +"<input type='number' name='end' step='0.001' placeholder='0.01'><label class='unit'>元</label>",
-        "value1":"<input type='number' name='price' step='0.001' placeholder='0.00'><label class='unit'>元</label>",
-        "value2":"<b style='font-weight: normal;'>价格以面议为准</b>"
+    var postBudget = $('.jRequired input[name="postBudget"]');
+    var preBudget = $('.jRequired input[name="preBudget"]');
+    function quote(){
+        if(postBudget.val() === '0'){
+            $('.jLabel').each(function(){
+                if($(this).attr('data-value') === '1'){
+                    $(this).addClass('current').siblings().removeClass('current');
+                }
+            });
+        }else if(preBudget.val() === '-1'){
+            $('.jLabel').each(function(){
+                if($(this).attr('data-value') === '2'){
+                    $(this).addClass('current').siblings().removeClass('current');
+                }
+            });
+        }else {
+            $('.jLabel').each(function(){
+                if($(this).attr('data-value') === '0'){
+                    $(this).addClass('current').siblings().removeClass('current');
+                }
+            });
+        }
     };
-
-
+    quote();
+    var hasPrice = $('.jPrice').children().clone();
+    var hasPriceVal = $('.jPrice').children().attr('data-value');
     $('.jLabel').on('tap',function(){
         $(this).addClass('current').siblings().removeClass('current');
         var val = $(this).attr('data-value');
-        $('#jQuote input[name="quote"]').val(val);
         switch (val)
         {
             case '0':
-                $('.jPrice').html(config.value0);
+                $('.jPrice').empty();
+                if(hasPriceVal === val){
+                    $('.jPrice').append(hasPrice);
+                }else {
+                    $('.jPrice').append('<div class="jPrice0" data-value="0">'
+                        +'<input type="number" name="postBudget" step="0.001" placeholder="0.00"><label class="unit">元</label>'
+                        +'<span>至</span>'
+                        +'<input type="number" name="preBudget" step="0.001" placeholder="0.01"><label class="unit">元</label>'
+                        +'</div>');
+                };
                 break;
             case '1':
-                $('.jPrice').html(config.value1);
+                $('.jPrice').empty();
+                if(hasPriceVal === val){
+                    $('.jPrice').append(hasPrice);
+                }else {
+                    $('.jPrice').append('<div class="jPrice1" data-value="1">'
+                        +'<input type="number" name="preBudget" step="0.001" placeholder="0.00"><label class="unit">元</label>'
+                        +'<input type="hidden" name="postBudget" value="0">'
+                        +'</div>');
+                };
                 break;
             case '2':
-                $('.jPrice').html(config.value2);
+                $('.jPrice').empty();
+                if(hasPriceVal === val){
+                    $('.jPrice').append(hasPrice);
+                }else {
+                    $('.jPrice').append('<div class="jPrice2" data-value="2">'
+                        +'<b style="font-weight: normal;">价格以面议为准</b>'
+                        +'<input type="hidden" name="preBudget" value="-1">'
+                        +'</div>');
+                };
                 break;
         };
     });
 
     //需求截止时间
     var date = new Date().getFullYear()+"年"+(new Date().getMonth()+1)+"月"+new Date().getDate()+"日";
-    $('.date .day').text(date);
-    $('#jHideDate').val(date);
+    if($('.date .day').text() === ''){
+        $('.date .day').text(date);
+        $('#jHideDate').val(date);
+    }else {
+        var dates = $('.date .day').text().split('-');
+        date = dates[0]+"年"+dates[1]+"月"+dates[2].split(' ')[0]+"日";
+        $('.date .day').text(date);
+        $('#jHideDate').val(date);
+    }
     $('#jDate').on('change',function(){
         date = $(this).val().replace("-","年").replace("-","月")+"日";
         $('.date .day').text(date);
@@ -72,14 +143,12 @@ define(function(require, exports, module) {
     function validation(){
         var message = '';
         var title = $('.jRequired input[name="title"]').val();
-        var classify = $('.jRequired input[name="classify"]').val();
-        var description = $('.jRequired textarea[name="description"]').val();
-        var quote = $('.jRequired input[name="quote"]').val();
-        var start = $('.jRequired input[name="start"]').val();
-        var end = $('.jRequired input[name="end"]').val();
-        var price = $('.jRequired input[name="price"]').val();
+        var classify = $('.jRequired input[name="categorys"]').val();
+        var description = $('.jRequired textarea[name="detail"]').val();
+        var start = $('.jRequired input[name="postBudget"]').val();//0 是一口价
+        var end = $('.jRequired input[name="preBudget"]').val();//判断报价形式 -1是面议
         var contact = $('.jRequired input[name="contact"]').val();
-        var contactInfo = $('.jRequired input[name="contact-info"]').val();
+        var contactInfo = $('.jRequired input[name="contactInfo"]').val();
 
         if(title === ''){
             message = '请完善标题';
@@ -87,13 +156,13 @@ define(function(require, exports, module) {
             message = '请选择分类';
         }else if(description === ''){
             message = '请完善描述';
-        }else if(quote === ''){
-            message = '请选择报价方式';
-        }else if(start === '' || end === '' || price === ''){
-            message = '请完善预算或一口价';
-        }else if(start < 0 || end < 0 || price < 0){
+        }else if(start !== '0' && (start === '' || end === '')){
+            message = '请完善预算';
+        }else if(start === '0' && end === ''){
+            message = '请完善一口价';
+        }else if(end !== '-1' && (start < 0 || end < 0)){
             message = '价格大于等于0且不能超过2位小数';
-        }else if(end <= start){
+        }else if(end !== '-1' && (end <= start)){
             message = '请输入正确的预算区间';
         }else if(contact === ''){
             message = '请完善联系人';
@@ -107,11 +176,6 @@ define(function(require, exports, module) {
             }catch (e){}
             try{
                 if(end.split(".")[1].length > 2){
-                    message = '价格大于等于0且不能超过2位小数';
-                }
-            }catch (e){}
-            try{
-                if(price.split(".")[1].length > 2){
                     message = '价格大于等于0且不能超过2位小数';
                 }
             }catch (e){}
@@ -135,73 +199,7 @@ define(function(require, exports, module) {
         }
     });
 
-     /*数据渲染*/
-    //发布需求数据渲染
-    function pageInit(data){
-        $('#jClassify').append('<input type="hidden" name="classify">');
-        for(var i = 0; i < data.init.length; i++){
-            var list = '<label class="list list'+i+' f-l" data-value="'+i+'">'+data.init[i].name+'</label>';
-            $('#jClassify').append(list);
-        }
-    };
-    //io.get('/m-service-market/source/api/publish-require/publish-require.json', function(data) {
-    //    pageInit(data);
-    //});
-
-    //修改需求数据渲染
-    function pageModify(data){
-        if(data.modify.title){//标题
-            $('#jTitle').val(data.modify.title);
-        }
-        if(data.modify.classify){//分类
-            pageInit(data);
-            $('.jRequired input[name="classify"]').val(data.modify.classify);
-            var classify = data.modify.classify.split(',');
-            for(var i=0; i < classify.length; i++){
-                $('#jClassify').children('.list'+classify[i]+'').addClass('checked');
-            }
-        }
-        if(data.modify.description){//需求描述
-            $('#jDescription').val(data.modify.description);
-        }
-        if(data.modify.date){//需求截止时间
-            $('.date .day').text(data.modify.date);
-        }
-        if(data.modify.quote){//报价
-            if(data.modify.quote.type || data.modify.quote.type === 0){//报价方式
-                $('#jQuote').children('.jLabel'+data.modify.quote.type+'').addClass('current');
-                $('.jRequired input[name="quote"]').val(data.modify.quote.type);
-                if(data.modify.quote.price){//价格
-                    if(data.modify.quote.type === 0){
-                        $('.jPrice').html("<input type='number' name='start' step='0.001' placeholder='0.00' value='"+data.modify.quote.price.start+"'><label class='unit'>元</label>"
-                            +"<span>至</span>"
-                            +"<input type='number' name='end' step='0.001' placeholder='0.01' value='"+data.modify.quote.price.end+"'><label class='unit'>元</label>");
-                    }
-                    if(data.modify.quote.type === 1){
-                        $('.jPrice').html("<input type='number' name='price' step='0.001' placeholder='0.00' value='"+data.modify.quote.price.price+"'><label class='unit'>元</label>");
-                    }
-                }
-                if(data.modify.quote.type === 2){
-                    $('.jPrice').html("<b style='font-weight: normal;'>价格以面议为准</b>");
-                }
-            }
-        }
-        if(data.modify.name){//联系人
-            $('#jConcat').val(data.modify.name);
-        }
-        if(data.modify.nameInfo){//联系方式
-            $('#jConcatInfo').val(data.modify.nameInfo);
-        }
-    };
-    io.get('/m-service-market/source/api/publish-require/publish-require.json', function(data) {
-        pageModify(data);
-        if(validation() == ''){
-            $('input[type="button"]').addClass('submit');
-        }else {
-            $('input[type="button"]').removeClass('submit');
-        };
-    });
-
+    /*数据模拟*/
     //提交表单
     $('input[type="button"]').on('tap',function(){
         var isSubmit = true;
@@ -212,16 +210,25 @@ define(function(require, exports, module) {
         }
         var formData = form.serializeForm($('#jForm'));
         if(isSubmit){
-            io.get('/m-service-market/source/api/publish-require/publish-require.json',{'data':formData},function(data) {
-                if(data.error > 0){
-                    box.tips(data.msg);
-                    setTimeout(function(){
-                        window.location.href='./publish-require-success.html';
-                    },2000)
-                }else {
-                    box.error(data.msg);
+            $.ajax(
+                {
+                    "url":$PAGE_DATA['postFrom'],
+                    "type":"post",
+                    "dataType":"json",
+                    "data":formData,
+                    "success":function(data){
+                        if(data.apiResult.message !== "发布成功！"){
+                            box.tips(data.apiResult.msg);
+                            window.location.href = $PAGE_DATA['publishSuccess'];
+                        }else {
+                            box.error(data.apiResult.msg);
+                        }
+                    },
+                    "error":function(data){
+
+                    }
                 }
-            },this);
+            );
         }
     });
 });

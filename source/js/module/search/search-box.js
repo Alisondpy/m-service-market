@@ -91,7 +91,6 @@ define(function(require, exports, module) {
             _this.selected.html(curItem.html());
         }
     }
-
     //获取搜索数据
     SearchBox.prototype.get = function() {
         var _this = this;

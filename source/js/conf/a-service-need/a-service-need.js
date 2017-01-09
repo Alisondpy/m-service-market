@@ -75,7 +75,6 @@ define(function(require, exports, module) {
             for (var j = 0; j < data.serviceTypes.length; j++) {
                  str+= '<span class="f-l"><i class="tool">'+data.serviceTypes[j].name+'</i></span>';
             }
-           
             str+=            '<span class="price f-r">'+data.showMoney+'</span>';
             str+=        '</div>';
             if(data.unReadCount>0){
@@ -88,7 +87,15 @@ define(function(require, exports, module) {
             str+=        '</div>';
             str+=        '<div class="bottom">';
             str+=            '<span class="bid f-l"><i class="bid-number">'+data.dockingCount+'</i>个投标</span>';
-            str+=            '<span class="status f-r">'+data.demandStatus+'</span>';
+            if(data.status==2||data.status==3){
+                str+= '<span class="status gray f-r">'+data.expireTime+'</span>';
+            } else if(data.status==1||data.status==5){
+                str+= '<span class="status red f-r">'+data.demandStatus+'</span>';
+            } else if(data.status==0){
+                str+= '<span class="status yellow f-r">'+data.demandStatus+'</span>';
+            } else if(data.status==4){
+                str+= '<span class="status green f-r">'+data.demandStatus+'</span>';
+            }
             str+=        '</div>';
             str+=    '</a>';
             str+='</li>';

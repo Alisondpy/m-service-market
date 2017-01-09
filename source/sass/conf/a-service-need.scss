@@ -117,7 +117,10 @@ html,body{
 				color: #aaa;
 			}
 			.status{
-				color: #f5ca00;
+				&.yellow{color: #ffb712;},
+				&.red{color: #ff4545;},
+				&.gray{color: #c1c1c1;},
+				&.green{color: #2bd1aa;}
 			}
 		} 
 	}
